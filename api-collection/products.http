@@ -1,0 +1,64 @@
+@baseUrl = http://localhost:3000/api
+
+@resourceName = products
+
+# Products
+
+# @name getAll
+
+GET {{baseUrl}}/{{resourceName}}
+
+####
+
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?price_gte=900
+
+####
+
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?name_like=tasty
+
+####
+
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=2&_limit=5
+
+####
+
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=asc
+
+####
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+  "categoryId": "3f0745ad-b183-485b-ad2d-daf1646b7c3d",
+  "name": "Keo dính chuột loại lớn",
+  "color": "mint green",
+  "price": 900,
+  "description": "Keo dính chuột thách thức các loại chuột to,chuột nhỏ,chuột cống vân vân",
+  "thumbnail": "https://picsum.photos/seed/ED1SIaYYQp/640/480"
+}
+
+####
+
+# @name update
+PATCH {{baseUrl}}/{{resourceName}}/L_lBeWO
+Content-Type: application/json
+
+{
+  "name": "Keo dính chuột loại lớn (chỉnh sửa)",
+  "color": "xanh lá cây đậm",
+  "price": 700
+}
+
+####
+
+# @name remove
+DELETE {{baseUrl}}/{{resourceName}}/1
+
+
+
